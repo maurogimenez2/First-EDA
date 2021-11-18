@@ -18,7 +18,6 @@ corr = df.set_index('alpha_3').corr()
 sm.graphics.plot_corr(corr, xnames=list(corr.columns))
 plt.show()
 
-Python
 url = 'https://raw.githubusercontent.com/DrueStaples/Population_Growth/master/countries.csv'
 df_pop = pd.read_csv(url)
 print(df_pop.head(5))
@@ -33,7 +32,6 @@ df_pop_es = df_pop[df_pop["country"] == 'Spain' ]
 print(df_pop_es.head())
 df_pop_es.drop(['country'],axis=1)['population'].plot(kind='bar')
 
-Python
 df_pop_ar = df_pop[(df_pop["country"] == 'Argentina')]
 
 anios = df_pop_es['year'].unique()
@@ -79,7 +77,7 @@ def find_anomalies(data):
     for index, row in data.iterrows():
         outlier = row # # obtener primer columna
         # print(outlier)
-        if (outlier.iloc[0] > upper_limit.iloc[0]) or (outlier.iloc[0] &lt; lower_limit.iloc[0]):
+        if (outlier.iloc[0] > upper_limit.iloc[0]) or (outlier.iloc[0] < lower_limit.iloc[0]):
             anomalies.append(index)
     return anomalies
  
